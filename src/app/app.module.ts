@@ -7,8 +7,9 @@ import { registerLocaleData, CommonModule } from "@angular/common";
 import { Helloworld } from "./app.helloworld.component";
 import { AlbumComponent } from "./album/album.component";
 import { GalleryComponent } from "./gallery/gallery.component";
+import { TraineeComponent } from './trainee/trainee.component';
 @NgModule({
-  declarations: [AppComponent, Helloworld, AlbumComponent, GalleryComponent],
+  declarations: [AppComponent, Helloworld, AlbumComponent, GalleryComponent, TraineeComponent],
   imports: [BrowserModule, AppRoutingModule, CommonModule],
   providers: [],
   bootstrap: [AppComponent]
