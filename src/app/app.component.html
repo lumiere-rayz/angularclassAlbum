@@ -1,25 +1,31 @@
 <div class="wrapper">
     <div class="container">
         <h1 class="center title">fintrak Academy Album</h1>
-        <!-- <h1 <h1 class="yellow">Class Album</h1>
-    <ul class="list-group small-width">
-        <li class="list-group-item">tosin</li>
-        <li class="list-group-item">lola</li>
-        <li class="list-group-item">tola</li>
-        <li class="list-group-item">fola</li>
-        <li class="list-group-item">kunle</li>
-    </ul>
-    <hr />  -->
 
         <div class="row">
-            <div class="col-md-4" *ngFor="let trainees of academy; let i=index">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let trainees of academy; let i=index">
+                        <app-trainee [trainees]="trainees" (selectedTrainee)=traineeListener($event)></app-trainee>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
 
-                <app-trainee [trainees]="trainees"></app-trainee>
+                <div class="card" style="width: 18rem;" *ngIf="activeTrainee">
+                    <img src="./assets/img/{{activeTrainee.image}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Name: {{ activeTrainee.name }}</h5>
+                        <p class="card-text">complexion: {{ activeTrainee.complexion }}</p>
+                        <ul class="card-text ">
+                            <p><strong>Hobbies</strong></p>
+                            <li *ngFor="let hobby of activeTrainee.hobbies">{{ hobby }}</li>
+                        </ul>
+                    </div>
+                </div>
+
 
             </div>
-
-
         </div>
-
     </div>
 </div>
