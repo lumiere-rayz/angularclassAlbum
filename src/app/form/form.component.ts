@@ -9,6 +9,7 @@ export class FormComponent implements OnInit {
   name = "john doe";
   email = "email@email.com";
   formValue;
+  register=[];
 
   constructor() {}
 
@@ -28,5 +29,7 @@ export class FormComponent implements OnInit {
     console.log(f.value);
     console.log(this.email);
     this.formValue = f.value;
+    this.register.push(this.formValue);
+    f.reset();
   }
 }

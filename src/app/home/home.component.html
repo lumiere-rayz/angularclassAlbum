@@ -1,0 +1,32 @@
+<app-form *ngIf="isTemplateDriven"></app-form>
+<div class="wrapper">
+    <div class="container">
+        <h1 class="center title">fintrak Academy Album</h1>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let trainees of academy; let i=index">
+                        <app-trainee [trainees]="trainees" (selectedTrainee)=traineeListener($event)></app-trainee>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+
+                <div class="card" style="width: 18rem;" *ngIf="activeTrainee">
+                    <img src="./assets/img/{{activeTrainee.image}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Name: {{ activeTrainee.name }}</h5>
+                        <p class="card-text">complexion: {{ activeTrainee.complexion }}</p>
+                        <ul class="card-text ">
+                            <p><strong>Hobbies</strong></p>
+                            <li *ngFor="let hobby of activeTrainee.hobbies">{{ hobby }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
