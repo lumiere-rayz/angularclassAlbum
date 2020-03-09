@@ -1,32 +1,20 @@
-<app-form></app-form>
-<div class="wrapper">
-    <div class="container">
-        <h1 class="center title">fintrak Academy Album</h1>
+<h1>My app</h1>
 
-        <div class="row">
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-4" *ngFor="let trainees of academy; let i=index">
-                        <app-trainee [trainees]="trainees" (selectedTrainee)=traineeListener($event)></app-trainee>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-
-                <div class="card" style="width: 18rem;" *ngIf="activeTrainee">
-                    <img src="./assets/img/{{activeTrainee.image}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Name: {{ activeTrainee.name }}</h5>
-                        <p class="card-text">complexion: {{ activeTrainee.complexion }}</p>
-                        <ul class="card-text ">
-                            <p><strong>Hobbies</strong></p>
-                            <li *ngFor="let hobby of activeTrainee.hobbies">{{ hobby }}</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
+<div class="row">
+    <nav class="col-md-4">
+        <ul>
+            <li>
+                <a [routerLink]="['/home']">Home</a>
+            </li>
+            <li>
+                <a [routerLink]="['/form']">Template Form</a>
+            </li>
+            <li>
+                <a [routerLink]="['/reactiveform']">Reactive Form</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
     </div>
 </div>

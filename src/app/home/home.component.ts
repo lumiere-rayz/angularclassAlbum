@@ -1,11 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
-export class AppComponent {
+export class HomeComponent implements OnInit {
   name = `Tosin-Omotayo`;
   show = `ball-show`;
   activeTrainee;
@@ -37,6 +37,10 @@ export class AppComponent {
       hobbies: ["drive", "talk"]
     }
   ];
+  constructor() {}
+
+  ngOnInit() {}
+
   traineeListener(trainee) {
     console.log(trainee);
     this.activeTrainee = trainee;
