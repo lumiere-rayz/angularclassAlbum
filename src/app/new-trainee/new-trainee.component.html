@@ -1,0 +1,56 @@
+<p>new-trainee works!</p>
+<div class="container">
+    <form [formGroup]="traineeForm" (ngSubmit)="addTrainee(traineeForm)">
+        <div>
+            <label form="name">Full Name</label>
+            <input type='text' class="form-control" formControlName="name">
+        </div>
+        <div>
+            <label form="complexion">Complexion</label>
+            <select class="form-control" formControlName="complexion">
+                <option *ngFor="let item of complexions" [value]='item'>{{item}}</option>
+            </select>
+        </div>
+        <div>
+            <label form="hobbies">Hobbies</label>
+            <input type='text' class="form-control" formControlName="hobbies" placeholder="comma seperated honnies">
+        </div>
+
+        <div>
+            <label form="gender">Gender</label>
+            <select class="form-control" formControlName="gender">
+                <option *ngFor="let g of genders" [value]='g'>{{g}}</option>
+            </select>
+        </div>
+
+        <div>
+            <label form="dateofbirth">Date of Birth</label>
+            <input type='text' class="form-control" formControlName="dateofbirth" placeholder="Format: dd/mm">
+        </div>
+
+        <div>
+            <label form="almamata">Alma-mata</label>
+            <input type='text' class="form-control" formControlName="almamata">
+        </div>
+        <div>
+            <label form="discipline">Discipline</label>
+            <input type='text' class="form-control" formControlName="discipline">
+        </div>
+        <div>
+            <label form="email">Email</label>
+            <input type='text' class="form-control" formControlName="email">
+        </div>
+
+        <div>
+            <label form="Telephone">Telephone</label>
+            <input type='text' class="form-control" formControlName="telephone">
+        </div>
+        <div>
+            <label form="about">Tell us about you</label>
+            <textarea name="about" id="" cols="30" rows="10" class="form-control" formControlName="about"></textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">submit</button>
+        </div>
+    </form>
+</div>
