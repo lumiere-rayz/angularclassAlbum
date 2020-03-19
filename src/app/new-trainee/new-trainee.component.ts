@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder, Form } from "@angular/forms";
 import { ITrainee } from "../model";
 import { environment } from "src/environments/environment.prod";
 import { HttpClient } from "@angular/common/http";
+import { TraineeService } from "../service/trainee.service";
 
 @Component({
   selector: "app-new-trainee",
@@ -13,7 +14,11 @@ export class NewTraineeComponent implements OnInit {
   traineeForm: FormGroup;
   complexions = ["black", "yellow", "chocolate", "white"];
   genders = ["Male", "Female", "others"];
-  constructor(private fb: FormBuilder, private httpclient: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private httpclient: HttpClient,
+    private traineeServ: TraineeService
+  ) {
     this.traineeForm = this.fb.group({
       name: ["", Validators.required],
       complexion: ["", Validators.required],
@@ -37,18 +42,11 @@ export class NewTraineeComponent implements OnInit {
     }
     const newFormData: ITrainee = formData;
 
-    this.httpclient
-      .post(
-        environment.firebaseConfig.databaseURL + "/trainees.json",
-        newFormData
-      )
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    this.traineeServ.addTrainee(newFormData).subscribe(
+      () => {},
+      () => {},
+      () => {}
+    );
+    form.reset();
   }
 }

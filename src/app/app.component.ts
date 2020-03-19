@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { TraineeService } from "./service/trainee.service";
+import { ITrainee } from "./model";
 
 @Component({
   selector: "app-root",
@@ -37,6 +39,7 @@ export class AppComponent {
       hobbies: ["drive", "talk"]
     }
   ];
+
   traineeListener(trainee) {
     console.log(trainee);
     this.activeTrainee = trainee;
