@@ -36,15 +36,19 @@ export class NewTraineeComponent implements OnInit {
   ngOnInit() {}
   addTrainee(form: FormGroup) {
     console.log(form.value);
-    let formData = form.value;
+    const formData = form.value;
     if (formData.hobbies) {
       formData.hobbies = formData.hobbies.split(",");
     }
     const newFormData: ITrainee = formData;
 
     this.traineeServ.addTrainee(newFormData).subscribe(
-      () => {},
-      () => {},
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      },
       () => {}
     );
     form.reset();
