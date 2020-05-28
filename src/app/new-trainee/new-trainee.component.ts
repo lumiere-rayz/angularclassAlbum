@@ -38,19 +38,23 @@ export class NewTraineeComponent implements OnInit {
     console.log(form.value);
     const formData = form.value;
     if (formData.hobbies) {
-      formData.hobbies = formData.hobbies.split(",");
+      formData.hobbies = formData.hobbies.split(',');
     }
     const newFormData: ITrainee = formData;
+    // this.traineeServ.addTrainee(newFormData);
+    this.traineeServ.addTrainee(newFormData);
+    // .subscribe(
+    //   (response) => {
+    //     console.log(response);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   },
+    //   () => {
 
-    this.traineeServ.addTrainee(newFormData).subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.log(error);
-      },
-      () => {}
-    );
+    //   });
     form.reset();
+
   }
+
 }
